@@ -1,7 +1,10 @@
+import MainDisplay from "./components/MainDisplay";
+
 function App() {
   return (
     <>
       <h1 className="text-3xl font-bold underline">APP</h1>
+      <MainDisplay />
     </>
   );
 }
