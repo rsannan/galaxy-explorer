@@ -1,8 +1,8 @@
 import Alert from "@mui/material/Alert";
-import { Dispatch, SetStateAction } from "react";
+
 interface Error {
   message: string;
-  setError: Dispatch<SetStateAction<string | null>>;
+  setError: React.Dispatch<React.SetStateAction<string | null>>;
 }
 const ErrorDisplay = (props: Error) => {
   const { message, setError } = props;
