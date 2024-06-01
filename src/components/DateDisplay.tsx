@@ -1,20 +1,14 @@
 import { DownArrow } from "./Icons";
+import { DateDisplayProps } from "../types";
 
-interface DateDisplay {
-  getApod: (url: string) => Promise<void>;
-  setDay: React.Dispatch<React.SetStateAction<string>>;
-  url: string;
-  day: string;
-}
-
-const DateDisplay = (props: DateDisplay) => {
+const DateDisplay = (props: DateDisplayProps) => {
   const { getApod, setDay, url, day } = props;
   return (
     <div className="my-6">
       <form className="flex flex-col items-center justify-center space-y-3">
         <label
           htmlFor="dateSelector"
-          className="font-normal flex flex-col items-center justify-center space-y-3"
+          className="font-normal flex flex-col items-center justify-center space-y-3 text-2xl"
         >
           Take A Peak Into The Past
           <DownArrow />

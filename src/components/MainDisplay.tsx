@@ -4,15 +4,7 @@ import ErrorDisplay from "./ErrorDisplay";
 import SuccessDisplay from "./SuccessDisplay";
 import DateDisplay from "./DateDisplay";
 import GalleryDisplay from "./GalleryDisplay";
-interface APOD {
-  date: string;
-  explanation: string;
-  hdurl: string;
-  media_type: string;
-  service_version: string;
-  title: string;
-  url: string;
-}
+import { APOD } from "../types";
 
 const MainDisplay = () => {
   const [day, setDay] = useState<string>("");

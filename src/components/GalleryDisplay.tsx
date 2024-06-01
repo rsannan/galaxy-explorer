@@ -2,15 +2,8 @@ import { useEffect, useState } from "react";
 import axios, { isAxiosError } from "axios";
 import ErrorDisplay from "./ErrorDisplay";
 import Loader from "./Loader";
-interface APOD {
-  date: string;
-  explanation: string;
-  hdurl: string;
-  media_type: string;
-  service_version: string;
-  title: string;
-  url: string;
-}
+import { APOD } from "../types";
+
 const GalleryDisplay = () => {
   const [itemData, setItemData] = useState<APOD[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);

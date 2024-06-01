@@ -1,13 +1,5 @@
 import Loader from "./Loader";
-
-interface Success {
-  isLoading: boolean;
-  date?: string;
-  explanation?: string;
-  hdurl?: string;
-  title?: string;
-  url?: string;
-}
+import { Success } from "../types";
 
 const SuccessDisplay = (props: Success) => {
   const { date, title, hdurl, url, explanation, isLoading } = props;
