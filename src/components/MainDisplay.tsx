@@ -13,6 +13,7 @@ interface APOD {
   title: string;
   url: string;
 }
+
 const MainDisplay = () => {
   const [day, setDay] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -35,25 +36,28 @@ const MainDisplay = () => {
       }
     }
   };
-
   useEffect(() => {
-    // getApod(url);
+    getApod(url);
   }, []);
 
   return (
     <>
       <DateDisplay setDay={setDay} day={day} getApod={getApod} url={url} />
       <hr />
-      {error ? (
-        <>
-          <ErrorDisplay message={error} setError={setError} />
-          <div className="">
-            <h3>Try Again: Set A New Date </h3>
-          </div>
-        </>
-      ) : (
-        <SuccessDisplay isLoading={isLoading} {...data} />
-      )}
+      <div className="my-4">
+        {error ? (
+          <>
+            <ErrorDisplay message={error} setError={setError} />
+            <div className=" flex justify-center items-center shadow-lg py-10">
+              <h3 className="text-4xl font-normal">
+                Try Again: Set A New Date{" "}
+              </h3>
+            </div>
+          </>
+        ) : (
+          <SuccessDisplay isLoading={isLoading} {...data} />
+        )}
+      </div>
 
       <GalleryDisplay />
     </>
