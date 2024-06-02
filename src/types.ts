@@ -25,4 +25,8 @@ interface Success {
   title?: string;
   url?: string;
 }
-export type { APOD, DateDisplayProps, Error, Success };
+interface GalleryDisplayProps {
+  setData: React.Dispatch<React.SetStateAction<APOD | undefined>>;
+  setDay: React.Dispatch<React.SetStateAction<string>>;
+}
+export type { APOD, DateDisplayProps, Error, Success, GalleryDisplayProps };

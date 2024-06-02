@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import axios, { isAxiosError } from "axios";
 import ErrorDisplay from "./ErrorDisplay";
 import Loader from "./Loader";
-import { APOD } from "../types";
+import { APOD, GalleryDisplayProps } from "../types";
+import { DownArrow } from "./Icons";
 
-const GalleryDisplay = () => {
+const GalleryDisplay = (props: GalleryDisplayProps) => {
+  const { setData, setDay } = props;
   const [itemData, setItemData] = useState<APOD[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -29,7 +31,13 @@ const GalleryDisplay = () => {
     getApods(url);
   }, []);
   return (
-    <div>
+    <div className="mt-10">
+      <div className=" flex flex-col justify-center items-center space-y-2 font-light shadow-md">
+        <h3>Have A Look At Other Interesting Apod's</h3>
+        <p>Click Any Of The Images Below To Learn More</p>
+        <DownArrow />
+      </div>
+      <hr />
       {error ? (
         <ErrorDisplay message={error} setError={setError} />
       ) : (
@@ -42,11 +50,16 @@ const GalleryDisplay = () => {
                 return (
                   <div
                     key={item.title}
-                    className="flex flex-col grow justify-center items-center shadow-lg p-2"
+                    className="flex flex-col grow justify-center items-center shadow-lg p-2  "
+                    onClick={() => {
+                      setData(item);
+                      setDay("");
+                    }}
                   >
                     <img
                       src={item.url || item.hdurl}
-                      className="h-32 w-48 mt-2"
+                      className="h-32 w-48 mt-2 transition hover:scale-110 hover:delay-200"
+                      alt="Picture of Apod"
                     />
                     <p className="font-thin p-2">{item.title}</p>
                   </div>

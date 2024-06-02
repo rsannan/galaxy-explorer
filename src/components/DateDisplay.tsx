@@ -39,6 +39,7 @@ const DateDisplay = (props: DateDisplayProps) => {
             onClick={(e) => {
               e.preventDefault();
               setDay("");
+              // maybe should default to todays Apod after clear
             }}
           >
             Clear

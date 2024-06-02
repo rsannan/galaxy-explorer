@@ -51,7 +51,7 @@ const MainDisplay = () => {
         )}
       </div>
 
-      <GalleryDisplay />
+      <GalleryDisplay setData={setData} setDay={setDay} />
     </>
   );
 };
