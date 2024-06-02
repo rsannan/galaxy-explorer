@@ -39,6 +39,10 @@ const DateDisplay = (props: DateDisplayProps) => {
             onClick={(e) => {
               e.preventDefault();
               setDay("");
+              getApod(
+                "https://api.nasa.gov/planetary/apod?api_key=" +
+                  import.meta.env.VITE_API_KEY
+              );
               // maybe should default to todays Apod after clear
             }}
           >

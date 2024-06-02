@@ -1,3 +1,5 @@
+// All types used in application
+
 interface APOD {
   date: string;
   explanation: string;
